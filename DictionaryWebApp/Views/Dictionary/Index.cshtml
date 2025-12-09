@@ -1,0 +1,20 @@
+﻿@model DictionaryWebApp.Models.WordEntry
+
+<h2>Dictionary</h2>
+
+<form method="get">
+    <input type="text" name="word" placeholder="Enter a word" class="form-control" />
+    <button class="btn btn-primary mt-2">Search</button>
+</form>
+
+@if (Model != null)
+{
+    <div class="mt-4">
+        <h3>@Model.Word</h3>
+        <p>@Model.Definition</p>
+    </div>
+}
+else if (ViewBag.NotFound == true)
+{
+    <p class="text-danger mt-3">Word not found.</p>
+}
