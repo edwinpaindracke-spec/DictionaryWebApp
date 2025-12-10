@@ -4,7 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddSingleton<DictionaryService>();
+builder.Services.AddHttpClient<DictionaryService>();
+
 
 builder.Services.AddControllersWithViews();
 

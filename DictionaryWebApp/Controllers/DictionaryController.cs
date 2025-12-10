@@ -12,18 +12,19 @@ namespace DictionaryWebApp.Controllers
             _service = service;
         }
 
-        public IActionResult Index(string? word)
+        public async Task<IActionResult> Index(string? word)
         {
             if (string.IsNullOrWhiteSpace(word))
-                return View(null);   // no search yet
+                return View(null);
 
-            var result = _service.Search(word);
+            var result = await _service.SearchAsync(word);
 
             if (result == null)
-                ViewBag.NotFound = true;  // tell the view the word is missing
+                ViewBag.NotFound = true;
 
             return View(result);
         }
+
 
     }
 }
