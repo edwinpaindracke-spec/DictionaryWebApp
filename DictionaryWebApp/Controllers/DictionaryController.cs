@@ -12,17 +12,15 @@ namespace DictionaryWebApp.Controllers
             _service = service;
         }
 
-        public async Task<IActionResult> Index(string? word, string? language = "en")
+        public async Task<IActionResult> Index(string? word)
         {
             if (string.IsNullOrWhiteSpace(word))
                 return View(null);
 
-            var result = await _service.SearchAsync(word, language);
+            var result = await _service.SearchAsync(word);
 
             if (result == null)
                 ViewBag.NotFound = true;
-
-            ViewBag.SelectedLanguage = language;
 
             return View(result);
         }

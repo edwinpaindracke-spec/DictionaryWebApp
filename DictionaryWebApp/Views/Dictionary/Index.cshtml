@@ -3,20 +3,8 @@
 <h2>Dictionary</h2>
 
 <form method="get">
-    <form asp-controller="Dictionary" asp-action="Index" method="get" class="d-flex gap-2">
-      
-        <select name="language" class="form-select">
-            <option value="en" selected>English</option>
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-            <option value="sp">Sepedi</option>
-            <option value="iz">Isizulu</option>
-            <!-- add more languages as needed -->
-        </select>
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
     <input type="text" name="word" placeholder="Enter a word" class="form-control" />
+    <button class="btn btn-primary mt-2">Search</button>
 </form>
 
 @if (Model != null)

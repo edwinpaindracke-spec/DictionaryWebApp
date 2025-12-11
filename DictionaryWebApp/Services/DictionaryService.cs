@@ -13,25 +13,14 @@ namespace DictionaryWebApp.Services
             _http = http;
         }
 
-        // Unified multi-language search
-        public async Task<WordEntry?> SearchAsync(string word, string language = "en")
+        public async Task<WordEntry?> SearchAsync(string word)
         {
             try
             {
-                // You can change API URL depending on language if needed
-                string url = language.ToLower() switch
-                {
-                    "es" => $"https://api.dictionaryapi.dev/api/v2/entries/es/{word}",
-                    "fr" => $"https://api.dictionaryapi.dev/api/v2/entries/fr/{word}",
-                    "de" => $"https://api.dictionaryapi.dev/api/v2/entries/de/{word}",
-                    _ => $"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
-                };
+                string url = $"https://api.dictionaryapi.dev/api/v2/entries/en/{word}";
 
                 // Fetch JSON as a document
-                var document = await _http.GetFromJsonAsync<JsonElement[]>(url);
-
-                if (document == null || document.Length == 0)
-                    return null;
+                var document = await _http.GetFromJsonAsync<JsonElement>(url);
 
                 // Extract the definition safely
                 string meaning =
