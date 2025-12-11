@@ -18,4 +18,38 @@ else if (ViewBag.NotFound == true)
 {
     <p class="text-danger mt-3">Word not found.</p>
 }
+@if (Model != null)
+{
+    <div class="result-box">
+        <h3 class="fw-bold">@Model.Word</h3>
+
+        <p><strong>Part of Speech:</strong> @Model.PartOfSpeech</p>
+
+        <p><strong>Definition:</strong><br /> @Model.Definition</p>
+
+        @if (Model.Examples.Any())
+        {
+            <p><strong>Example:</strong></p>
+            <ul>
+                @foreach (var ex in Model.Examples)
+                {
+                    <li>@ex</li>
+                }
+            </ul>
+        }
+
+        @if (Model.Synonyms.Any())
+        {
+            <p><strong>Synonyms:</strong></p>
+            <p>@string.Join(", ", Model.Synonyms)</p>
+        }
+
+        @if (Model.Antonyms.Any())
+        {
+            <p><strong>Antonyms:</strong></p>
+            <p>@string.Join(", ", Model.Antonyms)</p>
+        }
+    </div>
+}
+
 

@@ -2,11 +2,58 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">EDU-Dictionary</h1>
-</div>
-<div class="text-center mt-4">
-    <a asp-controller="Dictionary" asp-action="Index" class="btn btn-lg btn-success">
-        📘 Open Dictionary
+<style>
+    body {
+        background: linear-gradient(135deg, #007bff, #6610f2);
+        color: white;
+    }
+
+    .home-wrapper {
+        max-width: 800px;
+        margin: 60px auto;
+        text-align: center;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .home-title {
+        font-size: 60px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+
+    .home-subtitle {
+        font-size: 22px;
+        margin-bottom: 40px;
+        opacity: 0.9;
+    }
+
+    .btn-dict {
+        font-size: 22px;
+        padding: 15px 40px;
+        border-radius: 50px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .btn-dict:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+</style>
+
+<div class="home-wrapper">
+    <h1 class="home-title">📘 EDU-Dictionary</h1>
+
+    <p class="home-subtitle">
+        Learn faster. Explore deeper. A smart dictionary for English.
+    </p>
+
+    <a asp-controller="Dictionary" asp-action="Index" class="btn btn-success btn-dict">
+        🚀 Open Dictionary
     </a>
 </div>
